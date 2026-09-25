@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArGalleryRouteImport } from './routes/ar-gallery'
+import { Route as ArtDecoderRouteImport } from './routes/art-decoder'
+import { Route as ArtisansRouteImport } from './routes/artisans'
+import { Route as BookReaderRouteImport } from './routes/book-reader'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as StorytellerRouteImport } from './routes/storyteller'
+import { Route as HeritageIdRouteImport } from './routes/heritage.$id'
+import { Route as LanguagesIndexRouteImport } from './routes/languages.index'
+import { Route as LanguagesCodeRouteImport } from './routes/languages.$code'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArGalleryRoute = ArGalleryRouteImport.update({
+  id: '/ar-gallery',
+  path: '/ar-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtDecoderRoute = ArtDecoderRouteImport.update({
+  id: '/art-decoder',
+  path: '/art-decoder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtisansRoute = ArtisansRouteImport.update({
+  id: '/artisans',
+  path: '/artisans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookReaderRoute = BookReaderRouteImport.update({
+  id: '/book-reader',
+  path: '/book-reader',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorytellerRoute = StorytellerRouteImport.update({
+  id: '/storyteller',
+  path: '/storyteller',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageIdRoute = HeritageIdRouteImport.update({
+  id: '/heritage/$id',
+  path: '/heritage/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LanguagesIndexRoute = LanguagesIndexRouteImport.update({
+  id: '/languages/',
+  path: '/languages/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LanguagesCodeRoute = LanguagesCodeRouteImport.update({
+  id: '/languages/$code',
+  path: '/languages/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ar-gallery': typeof ArGalleryRoute
+  '/art-decoder': typeof ArtDecoderRoute
+  '/artisans': typeof ArtisansRoute
+  '/book-reader': typeof BookReaderRoute
+  '/games': typeof GamesRoute
+  '/map': typeof MapRoute
+  '/search': typeof SearchRoute
+  '/storyteller': typeof StorytellerRoute
+  '/heritage/$id': typeof HeritageIdRoute
+  '/languages/$code': typeof LanguagesCodeRoute
+  '/languages/': typeof LanguagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ar-gallery': typeof ArGalleryRoute
+  '/art-decoder': typeof ArtDecoderRoute
+  '/artisans': typeof ArtisansRoute
+  '/book-reader': typeof BookReaderRoute
+  '/games': typeof GamesRoute
+  '/map': typeof MapRoute
+  '/search': typeof SearchRoute
+  '/storyteller': typeof StorytellerRoute
+  '/heritage/$id': typeof HeritageIdRoute
+  '/languages/$code': typeof LanguagesCodeRoute
+  '/languages': typeof LanguagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ar-gallery': typeof ArGalleryRoute
+  '/art-decoder': typeof ArtDecoderRoute
+  '/artisans': typeof ArtisansRoute
+  '/book-reader': typeof BookReaderRoute
+  '/games': typeof GamesRoute
+  '/map': typeof MapRoute
+  '/search': typeof SearchRoute
+  '/storyteller': typeof StorytellerRoute
+  '/heritage/$id': typeof HeritageIdRoute
+  '/languages/$code': typeof LanguagesCodeRoute
+  '/languages/': typeof LanguagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ar-gallery'
+    | '/art-decoder'
+    | '/artisans'
+    | '/book-reader'
+    | '/games'
+    | '/map'
+    | '/search'
+    | '/storyteller'
+    | '/heritage/$id'
+    | '/languages/$code'
+    | '/languages/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ar-gallery'
+    | '/art-decoder'
+    | '/artisans'
+    | '/book-reader'
+    | '/games'
+    | '/map'
+    | '/search'
+    | '/storyteller'
+    | '/heritage/$id'
+    | '/languages/$code'
+    | '/languages'
+  id:
+    | '__root__'
+    | '/'
+    | '/ar-gallery'
+    | '/art-decoder'
+    | '/artisans'
+    | '/book-reader'
+    | '/games'
+    | '/map'
+    | '/search'
+    | '/storyteller'
+    | '/heritage/$id'
+    | '/languages/$code'
+    | '/languages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArGalleryRoute: typeof ArGalleryRoute
+  ArtDecoderRoute: typeof ArtDecoderRoute
+  ArtisansRoute: typeof ArtisansRoute
+  BookReaderRoute: typeof BookReaderRoute
+  GamesRoute: typeof GamesRoute
+  MapRoute: typeof MapRoute
+  SearchRoute: typeof SearchRoute
+  StorytellerRoute: typeof StorytellerRoute
+  HeritageIdRoute: typeof HeritageIdRoute
+  LanguagesCodeRoute: typeof LanguagesCodeRoute
+  LanguagesIndexRoute: typeof LanguagesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ar-gallery': {
+      id: '/ar-gallery'
+      path: '/ar-gallery'
+      fullPath: '/ar-gallery'
+      preLoaderRoute: typeof ArGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/art-decoder': {
+      id: '/art-decoder'
+      path: '/art-decoder'
+      fullPath: '/art-decoder'
+      preLoaderRoute: typeof ArtDecoderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artisans': {
+      id: '/artisans'
+      path: '/artisans'
+      fullPath: '/artisans'
+      preLoaderRoute: typeof ArtisansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-reader': {
+      id: '/book-reader'
+      path: '/book-reader'
+      fullPath: '/book-reader'
+      preLoaderRoute: typeof BookReaderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storyteller': {
+      id: '/storyteller'
+      path: '/storyteller'
+      fullPath: '/storyteller'
+      preLoaderRoute: typeof StorytellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/$id': {
+      id: '/heritage/$id'
+      path: '/heritage/$id'
+      fullPath: '/heritage/$id'
+      preLoaderRoute: typeof HeritageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/languages/': {
+      id: '/languages/'
+      path: '/languages'
+      fullPath: '/languages/'
+      preLoaderRoute: typeof LanguagesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/languages/$code': {
+      id: '/languages/$code'
+      path: '/languages/$code'
+      fullPath: '/languages/$code'
+      preLoaderRoute: typeof LanguagesCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArGalleryRoute: ArGalleryRoute,
+  ArtDecoderRoute: ArtDecoderRoute,
+  ArtisansRoute: ArtisansRoute,
+  BookReaderRoute: BookReaderRoute,
+  GamesRoute: GamesRoute,
+  MapRoute: MapRoute,
+  SearchRoute: SearchRoute,
+  StorytellerRoute: StorytellerRoute,
+  HeritageIdRoute: HeritageIdRoute,
+  LanguagesCodeRoute: LanguagesCodeRoute,
+  LanguagesIndexRoute: LanguagesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
