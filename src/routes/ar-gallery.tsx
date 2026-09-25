@@ -57,7 +57,7 @@ function Scanner() {
       if (video.current) { video.current.srcObject = s; await video.current.play(); }
       setOn(true);
       // Demo recognition: posters in our gallery are matched after the camera steadies.
-      setTimeout(() => setFound(artworks[0]), 3000);
+      setTimeout(() => setFound(artworks[0]!), 3000);
     } catch { setErr("Camera unavailable on this device. Pick a poster below to hear its story instead."); }
   }
   return (

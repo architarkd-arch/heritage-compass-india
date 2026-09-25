@@ -53,9 +53,9 @@ function Memory() {
   const [cards] = useState(() => shuffle(pairs.flatMap((s) => [{ k: s.id, t: s.name }, { k: s.id, t: s.state }])));
   const [open, setOpen] = useState<number[]>([]); const [done, setDone] = useState<string[]>([]); const [moves, setMoves] = useState(0);
   const flip = (i: number) => {
-    if (open.length === 2 || open.includes(i) || done.includes(cards[i].k)) return;
+    if (open.length === 2 || open.includes(i) || done.includes(cards[i]!.k)) return;
     const o = [...open, i]; setOpen(o);
-    if (o.length === 2) { setMoves(moves + 1); setTimeout(() => { if (cards[o[0]].k === cards[o[1]].k) setDone((d) => [...d, cards[o[0]].k]); setOpen([]); }, 700); }
+    if (o.length === 2) { setMoves(moves + 1); setTimeout(() => { const a = cards[o[0]!]!, b = cards[o[1]!]!; if (a.k === b.k) setDone((d) => [...d, a.k]); setOpen([]); }, 700); }
   };
   return (
     <div>
