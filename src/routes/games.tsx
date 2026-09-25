@@ -32,7 +32,7 @@ function Quiz() {
   const qs = useMemo(() => shuffle(quiz), []);
   const [i, setI] = useState(0); const [pick, setPick] = useState<number | null>(null); const [score, setScore] = useState(0);
   if (i >= qs.length) return <div className={card}><h2 className="font-display text-2xl">Score: {score}/{qs.length} 🎉</h2><button className={`${btn} mt-4`} onClick={() => { setI(0); setScore(0); setPick(null); }}>Play again</button></div>;
-  const q = qs[i];
+  const q = qs[i]!;
   return (
     <div className={`${card} max-w-2xl`}>
       <p className="text-sm text-muted-foreground">Question {i + 1}/{qs.length} · Score {score}</p>
@@ -72,7 +72,7 @@ function Pairs({ items, label }: { items: { q: string; a: string }[]; label: str
   const answers = Array.from(new Set(items.map((x) => x.a)));
   const [i, setI] = useState(() => Math.floor(Math.random() * items.length));
   const [res, setRes] = useState<string | null>(null); const [score, setScore] = useState(0);
-  const item = items[i];
+  const item = items[i]!;
   const opts = useMemo(() => shuffle([item.a, ...shuffle(answers.filter((a) => a !== item.a)).slice(0, 3)]), [i]);
   return (
     <div className={`${card} max-w-2xl`}>
@@ -91,7 +91,7 @@ const tf = [
 ];
 function TrueFalse() {
   const [i, setI] = useState(0); const [r, setR] = useState<boolean | null>(null); const [score, setScore] = useState(0);
-  const q = tf[i % tf.length];
+  const q = tf[i % tf.length]!;
   return (
     <div className={`${card} max-w-2xl`}>
       <p className="text-sm text-muted-foreground">Score {score}</p>

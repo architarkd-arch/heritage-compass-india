@@ -15,8 +15,8 @@ function Lang() {
   const [fi, setFi] = useState(0); const [flip, setFlip] = useState(false);
   const [qi, setQi] = useState(0); const [pick, setPick] = useState<string | null>(null); const [score, setScore] = useState(0);
   const hasVoice = l.code === "hi" || l.code === "ta";
-  const w = l.words[fi % l.words.length];
-  const qw = l.words[qi % l.words.length];
+  const w = l.words[fi % l.words.length]!;
+  const qw = l.words[qi % l.words.length]!;
   const opts = useMemo(() => [...l.words].sort(() => Math.random() - 0.5).map((x) => x.en), [qi, l]);
   return (
     <div>
