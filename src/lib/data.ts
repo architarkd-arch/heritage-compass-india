@@ -1,3 +1,8 @@
+import gondTreeModel from "@/assets/gond-tree.glb.asset.json";
+import madhubaniFishModel from "@/assets/madhubani-fish.glb.asset.json";
+import pithoraHorseModel from "@/assets/pithora-horse.glb.asset.json";
+import warliDanceModel from "@/assets/warli-dance.glb.asset.json";
+
 export type Site = {
   id: string; name: string; state: string; region: "North" | "South" | "East" | "West" | "Central" | "Northeast";
   type: "Monument" | "Temple" | "Fort" | "Natural" | "Tradition" | "Cave";
@@ -8,72 +13,72 @@ export type Site = {
 
 // x,y are rough positions (0-100) on a stylised India map
 export const sites: Site[] = [
-  { id: "taj-mahal", name: "Taj Mahal", state: "Uttar Pradesh", region: "North", type: "Monument", era: "1632–1653, Mughal", unesco: true, x: 42, y: 30,
+  { id: "taj-mahal", name: "Taj Mahal", state: "Uttar Pradesh", region: "North", type: "Monument", era: "1632–1653, Mughal", unesco: true, x: 37, y: 31,
     summary: "White marble mausoleum built by Shah Jahan in memory of Mumtaz Mahal.",
     history: "Commissioned in 1632 by Mughal emperor Shah Jahan, built by around 20,000 artisans over two decades on the banks of the Yamuna in Agra.",
     architecture: "Indo-Islamic style blending Persian, Timurid and Indian elements; pietra dura inlay, charbagh garden, four minarets.",
     bestTime: "October–March", timings: "Sunrise to sunset, closed Fridays", fee: "₹50 Indians / ₹1100 foreigners (approx.)", tips: "Visit at sunrise for soft light and fewer crowds.", tags: ["mughal", "agra", "marble", "wonder"] },
-  { id: "hampi", name: "Group of Monuments at Hampi", state: "Karnataka", region: "South", type: "Monument", era: "14th–16th c., Vijayanagara", unesco: true, x: 36, y: 68,
+  { id: "hampi", name: "Group of Monuments at Hampi", state: "Karnataka", region: "South", type: "Monument", era: "14th–16th c., Vijayanagara", unesco: true, x: 35, y: 73,
     summary: "Ruins of the Vijayanagara capital amid giant boulders.",
     history: "Capital of the Vijayanagara Empire, one of the richest cities of its time, sacked in 1565 after the Battle of Talikota.",
     architecture: "Dravidian temples, the stone chariot of Vittala temple, musical pillars and royal enclosures.",
     bestTime: "October–February", timings: "6 AM–6 PM", fee: "₹40 Indians (approx.)", tips: "Rent a bicycle; watch sunset from Hemakuta hill.", tags: ["vijayanagara", "ruins", "temple"] },
-  { id: "konark", name: "Konark Sun Temple", state: "Odisha", region: "East", type: "Temple", era: "13th c., Eastern Ganga", unesco: true, x: 62, y: 50,
+  { id: "konark", name: "Konark Sun Temple", state: "Odisha", region: "East", type: "Temple", era: "13th c., Eastern Ganga", unesco: true, x: 55, y: 59,
     summary: "A temple shaped as the chariot of the Sun god with 24 carved wheels.",
     history: "Built by King Narasimhadeva I around 1250 CE; sailors called it the Black Pagoda.",
     architecture: "Kalinga architecture; 12 pairs of stone wheels that work as sundials, pulled by seven horses.",
     bestTime: "October–March", timings: "6 AM–8 PM", fee: "₹40 Indians (approx.)", tips: "Attend the Konark Dance Festival in December.", tags: ["sun", "odisha", "chariot"] },
-  { id: "ajanta", name: "Ajanta Caves", state: "Maharashtra", region: "West", type: "Cave", era: "2nd c. BCE–6th c. CE", unesco: true, x: 34, y: 50,
+  { id: "ajanta", name: "Ajanta Caves", state: "Maharashtra", region: "West", type: "Cave", era: "2nd c. BCE–6th c. CE", unesco: true, x: 34, y: 54,
     summary: "Rock-cut Buddhist caves with some of the finest surviving ancient Indian paintings.",
     history: "About 30 caves carved over centuries, rediscovered in 1819 by a British officer on a tiger hunt.",
     architecture: "Chaityas (prayer halls) and viharas (monasteries) with murals of Jataka tales.",
     bestTime: "June–March", timings: "9 AM–5:30 PM, closed Mondays", fee: "₹40 Indians (approx.)", tips: "Carry a torch; flash photography is banned.", tags: ["buddhist", "murals", "caves"] },
-  { id: "red-fort", name: "Red Fort", state: "Delhi", region: "North", type: "Fort", era: "1639–1648, Mughal", unesco: true, x: 40, y: 26,
+  { id: "red-fort", name: "Red Fort", state: "Delhi", region: "North", type: "Fort", era: "1639–1648, Mughal", unesco: true, x: 32, y: 29,
     summary: "Red sandstone fort where India's Prime Minister hoists the flag on Independence Day.",
     history: "Built by Shah Jahan as the palace of his new capital Shahjahanabad.",
     architecture: "Diwan-i-Aam, Diwan-i-Khas, Rang Mahal; Mughal palace planning.",
     bestTime: "October–March", timings: "9:30 AM–4:30 PM, closed Mondays", fee: "₹35 Indians (approx.)", tips: "Stay for the evening sound and light show.", tags: ["delhi", "mughal", "independence"] },
-  { id: "meenakshi", name: "Meenakshi Amman Temple", state: "Tamil Nadu", region: "South", type: "Temple", era: "Rebuilt 16th–17th c., Nayak", unesco: false, x: 42, y: 86,
+  { id: "meenakshi", name: "Meenakshi Amman Temple", state: "Tamil Nadu", region: "South", type: "Temple", era: "Rebuilt 16th–17th c., Nayak", unesco: false, x: 36, y: 88,
     summary: "Vast temple complex in Madurai with 14 colourful gopurams.",
     history: "Dedicated to Meenakshi (Parvati) and Sundareswarar (Shiva); centre of Madurai life for over 2,000 years.",
     architecture: "Dravidian style, towering gopurams covered with thousands of painted figures, Hall of 1000 Pillars.",
     bestTime: "October–March", timings: "5 AM–12:30 PM, 4–10 PM", fee: "Free", tips: "Dress modestly; see the night ceremony.", tags: ["madurai", "dravidian", "gopuram"] },
-  { id: "kaziranga", name: "Kaziranga National Park", state: "Assam", region: "Northeast", type: "Natural", era: "Park since 1974", unesco: true, x: 78, y: 32,
+  { id: "kaziranga", name: "Kaziranga National Park", state: "Assam", region: "Northeast", type: "Natural", era: "Park since 1974", unesco: true, x: 79, y: 35,
     summary: "Home to two-thirds of the world's one-horned rhinoceroses.",
     history: "Protected since 1905 after Lady Curzon's concern for the dwindling rhino.",
     architecture: "Floodplain grasslands, wetlands and forests of the Brahmaputra.",
     bestTime: "November–April", timings: "Safari slots morning & afternoon", fee: "Varies by zone", tips: "Book the early elephant or jeep safari.", tags: ["rhino", "wildlife", "assam"] },
-  { id: "khajuraho", name: "Khajuraho Temples", state: "Madhya Pradesh", region: "Central", type: "Temple", era: "950–1050 CE, Chandela", unesco: true, x: 44, y: 38,
+  { id: "khajuraho", name: "Khajuraho Temples", state: "Madhya Pradesh", region: "Central", type: "Temple", era: "950–1050 CE, Chandela", unesco: true, x: 42, y: 43,
     summary: "Nagara-style temples famed for intricate sculpture.",
     history: "Built by the Chandela dynasty; of about 85 temples, 25 survive.",
     architecture: "Nagara style with rising shikharas and dense sculptural panels.",
     bestTime: "October–March", timings: "Sunrise–sunset", fee: "₹40 Indians (approx.)", tips: "Visit during the Khajuraho Dance Festival in February.", tags: ["chandela", "sculpture"] },
-  { id: "amber", name: "Amber Fort", state: "Rajasthan", region: "West", type: "Fort", era: "1592, Rajput", unesco: true, x: 34, y: 30,
+  { id: "amber", name: "Amber Fort", state: "Rajasthan", region: "West", type: "Fort", era: "1592, Rajput", unesco: true, x: 27, y: 35,
     summary: "Hilltop fort-palace of honey-coloured stone near Jaipur.",
     history: "Built by Raja Man Singh I; part of the Hill Forts of Rajasthan UNESCO site.",
     architecture: "Rajput-Mughal fusion; Sheesh Mahal mirror palace.",
     bestTime: "October–March", timings: "8 AM–5:30 PM", fee: "₹100 Indians (approx.)", tips: "Walk up the ramp early in the morning.", tags: ["jaipur", "rajput", "fort"] },
-  { id: "durga-puja", name: "Durga Puja of Kolkata", state: "West Bengal", region: "East", type: "Tradition", era: "Living tradition", unesco: true, x: 66, y: 42,
+  { id: "durga-puja", name: "Durga Puja of Kolkata", state: "West Bengal", region: "East", type: "Tradition", era: "Living tradition", unesco: true, x: 59, y: 49,
     summary: "Festival of the goddess Durga, inscribed as UNESCO Intangible Heritage in 2021.",
     history: "Celebrated since at least the 16th century; community pandals grew in the 20th century.",
     architecture: "Temporary pandal art, clay idols made in Kumartuli.",
     bestTime: "September–October", timings: "Festival days", fee: "Free", tips: "Go pandal-hopping at night by metro.", tags: ["festival", "kolkata", "intangible"] },
-  { id: "kathakali", name: "Kathakali", state: "Kerala", region: "South", type: "Tradition", era: "17th c. onwards", unesco: false, x: 36, y: 84,
+  { id: "kathakali", name: "Kathakali", state: "Kerala", region: "South", type: "Tradition", era: "17th c. onwards", unesco: false, x: 29, y: 84,
     summary: "Classical dance-drama with elaborate make-up and costumes.",
     history: "Developed from Krishnanattam and Ramanattam in Kerala's temple and court culture.",
     architecture: "Performance art: mudras, facial expressions, chenda drums.",
     bestTime: "All year", timings: "Evening shows", fee: "Varies", tips: "Arrive early to watch the make-up being applied.", tags: ["dance", "kerala"] },
-  { id: "sanchi", name: "Sanchi Stupa", state: "Madhya Pradesh", region: "Central", type: "Monument", era: "3rd c. BCE, Mauryan", unesco: true, x: 40, y: 42,
+  { id: "sanchi", name: "Sanchi Stupa", state: "Madhya Pradesh", region: "Central", type: "Monument", era: "3rd c. BCE, Mauryan", unesco: true, x: 39, y: 46,
     summary: "One of the oldest stone structures in India, commissioned by Ashoka.",
     history: "Built by Emperor Ashoka and enlarged by later dynasties.",
     architecture: "Hemispherical dome with four carved toranas (gateways).",
     bestTime: "October–March", timings: "Sunrise–sunset", fee: "₹40 Indians (approx.)", tips: "Study the Jataka stories on the gateways.", tags: ["buddhist", "ashoka", "stupa"] },
-  { id: "golden-temple", name: "Harmandir Sahib (Golden Temple)", state: "Punjab", region: "North", type: "Temple", era: "1604, Sikh", unesco: false, x: 36, y: 20,
+  { id: "golden-temple", name: "Harmandir Sahib (Golden Temple)", state: "Punjab", region: "North", type: "Temple", era: "1604, Sikh", unesco: false, x: 27, y: 23,
     summary: "Holiest gurdwara of Sikhism, home of the world's largest free kitchen.",
     history: "Founded by Guru Arjan Dev; the Adi Granth was installed in 1604.",
     architecture: "Gilded sanctum amid the Amrit Sarovar pool.",
     bestTime: "November–March", timings: "Open 24 hours", fee: "Free", tips: "Cover your head; eat at the langar.", tags: ["sikh", "amritsar", "langar"] },
-  { id: "living-root-bridges", name: "Living Root Bridges", state: "Meghalaya", region: "Northeast", type: "Natural", era: "Living tradition", unesco: false, x: 76, y: 36,
+  { id: "living-root-bridges", name: "Living Root Bridges", state: "Meghalaya", region: "Northeast", type: "Natural", era: "Living tradition", unesco: false, x: 76, y: 39,
     summary: "Bridges grown from rubber-fig roots by Khasi and Jaintia communities.",
     history: "Grown over decades using traditional ecological knowledge passed down generations.",
     architecture: "Bio-engineered bridges; the double-decker bridge at Nongriat.",
@@ -108,12 +113,12 @@ export const quiz: Q[] = [
   { q: "Patola is a type of…", options: ["Pottery", "Double-ikat silk", "Metal casting", "Painting"], answer: 1, fact: "Woven in Patan, Gujarat." },
 ];
 
-export type Artwork = { id: string; title: string; style: string; creator: string; community: string; region: string; credit: string; image: string; story: string; model?: string };
+export type Artwork = { id: string; title: string; style: string; creator: string; community: string; region: string; credit: string; image: string; story: string; model: string };
 export const artworks: Artwork[] = [
-  { id: "w1", title: "Harvest Dance (Tarpa)", style: "Warli", creator: "Community artist", community: "Warli", region: "Palghar, Maharashtra", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Warli_painting.jpg/640px-Warli_painting.jpg", story: "Dancers circle around the tarpa player, a spiral that mirrors the cycle of life.", model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb" },
-  { id: "w2", title: "Tree of Life", style: "Gond", creator: "Pardhan Gond artist", community: "Gond", region: "Dindori, Madhya Pradesh", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gond_painting.jpg/640px-Gond_painting.jpg", story: "Birds and animals shelter in a tree whose patterns carry clan stories." },
-  { id: "w3", title: "Madhubani Fish", style: "Madhubani", creator: "Mithila artist", community: "Mithila", region: "Bihar", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Madhubani_art.jpg/640px-Madhubani_art.jpg", story: "Fish symbolise fertility and good fortune, often painted for weddings." },
-  { id: "w4", title: "Pithora Horses", style: "Pithora", creator: "Rathwa lakhara", community: "Rathwa", region: "Chhota Udaipur, Gujarat", credit: "Source unavailable", image: "", story: "Painted horses honour Baba Pithora; made as a vow for a family's wellbeing." },
+  { id: "w1", title: "Harvest Dance (Tarpa)", style: "Warli", creator: "Community artist", community: "Warli", region: "Palghar, Maharashtra", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Warli_painting.jpg/640px-Warli_painting.jpg", story: "Dancers circle around the tarpa player, a spiral that mirrors the cycle of life.", model: warliDanceModel.url },
+  { id: "w2", title: "Tree of Life", style: "Gond", creator: "Pardhan Gond artist", community: "Gond", region: "Dindori, Madhya Pradesh", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gond_painting.jpg/640px-Gond_painting.jpg", story: "Birds and animals shelter in a tree whose patterns carry clan stories.", model: gondTreeModel.url },
+  { id: "w3", title: "Madhubani Fish", style: "Madhubani", creator: "Mithila artist", community: "Mithila", region: "Bihar", credit: "Illustrative reproduction", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Madhubani_art.jpg/640px-Madhubani_art.jpg", story: "Fish symbolise fertility and good fortune, often painted for weddings.", model: madhubaniFishModel.url },
+  { id: "w4", title: "Pithora Horses", style: "Pithora", creator: "Rathwa lakhara", community: "Rathwa", region: "Chhota Udaipur, Gujarat", credit: "Source unavailable", image: "", story: "Painted horses honour Baba Pithora; made as a vow for a family's wellbeing.", model: pithoraHorseModel.url },
 ];
 
 export type Lang = { code: string; name: string; native: string; script: string; family: string; speakers: string;

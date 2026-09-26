@@ -5,7 +5,7 @@ import { PageTitle, btn, btnGhost, card } from "@/components/Shell";
 import { speak } from "@/lib/i18n";
 
 export const Route = createFileRoute("/ar-gallery")({
-  head: () => ({ meta: [{ title: "AR Gallery — Heritage Compass" }, { name: "description", content: "Browse tribal artworks with creator credits, view them in AR and scan posters for stories." }, { property: "og:title", content: "AR Heritage Gallery" }, { property: "og:description", content: "See India's folk art in augmented reality." }] }),
+  head: () => ({ meta: [{ title: "AR Gallery — Heritage Compass" }, { name: "description", content: "Browse tribal artworks with creator credits, view matching objects in AR and scan posters for stories." }, { property: "og:title", content: "AR Heritage Gallery — Heritage Compass" }, { property: "og:description", content: "Place culturally matched Warli, Gond, Madhubani and Pithora objects in your space." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Gallery,
 });
 
@@ -23,7 +23,7 @@ function Gallery() {
               <h2 className="font-display font-semibold">{a.title}</h2>
               <p className="mt-1 text-sm">{a.story}</p>
               <p className="mt-2 text-xs text-muted-foreground">{a.creator} · {a.community} · {a.region}<br />Credit: {a.credit}</p>
-              {a.model ? <button className={`${btnGhost} mt-3 w-full text-sm`} onClick={() => setAr(a)}>View in AR</button> : <p className="mt-3 text-xs text-muted-foreground">3D model not available.</p>}
+              <button className={`${btnGhost} mt-3 w-full text-sm`} onClick={() => setAr(a)}>View in 3D & AR</button>
             </div>
           </article>
         ))}
@@ -32,11 +32,11 @@ function Gallery() {
         <div role="dialog" aria-label={`AR view of ${ar.title}`} className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 p-4">
           <div className={`${card} w-full max-w-lg`}>
             <h2 className="font-display text-xl font-semibold">{ar.title}</h2>
-            <div className="mt-3 h-80 rounded-lg bg-secondary">
-              {createElement("model-viewer", { src: ar.model, ar: true, "camera-controls": true, "auto-rotate": true, alt: ar.title, style: { width: "100%", height: "100%" } },
-                ar.image ? <img slot="poster" src={ar.image} alt={ar.title} className="h-full w-full object-cover" /> : null)}
+            <div className="mt-3 h-80 overflow-hidden rounded-lg bg-secondary">
+              {createElement("model-viewer", { src: ar.model, ar: true, "ar-modes": "webxr scene-viewer quick-look", "camera-controls": true, "auto-rotate": true, "shadow-intensity": "1", exposure: "1.15", alt: `3D interpretation of ${ar.title}`, style: { width: "100%", height: "100%", backgroundColor: "transparent" } },
+                createElement("button", { slot: "ar-button", className: `${btn} absolute bottom-3 right-3 text-sm` }, "Place in your space"))}
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">If AR isn't supported on your device, you can still rotate the model. {ar.story}</p>
+            <p className="mt-2 text-sm text-muted-foreground">Drag to rotate and pinch to zoom. On a supported phone, choose “Place in your space.” {ar.story}</p>
             <button className={`${btn} mt-3`} onClick={() => setAr(null)}>Close</button>
           </div>
         </div>

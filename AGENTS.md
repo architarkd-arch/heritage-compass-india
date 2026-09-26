@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Heritage AR objects are compact project-owned GLBs stored through Lovable Assets, so gallery subjects never depend on unrelated demo models or third-party model hosting.
